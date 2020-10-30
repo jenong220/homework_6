@@ -3,10 +3,11 @@
   <head>
     <title>Bun Bun Bake Shop</title>
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="onLoad()">
     <div class="homepage-grid">
       <div class="header">
         <img src="We're Open Sign.png" width="200" height=auto alt="We're Open Sign">
@@ -15,8 +16,8 @@
       <div class="plate">
         <p>Your Plate:</p>
         <img class="empty-plate" src="Empty Plate.png" width="70" height=auto alt="Empty Plate">
-        <p class="faint-text">You're plate is empty! Let's find you some rolls!</p>
-        <img src="Checkout Button.png" width="120" height="auto" alt="Checkout Button">
+        <p id="faint-text">You're plate is empty! Let's find you some rolls!</p>
+        <button class="orange-buttons" id="checkout-button" onclick="window.location.href='checkout.html'">Checkout</button>
         </div>
       <div class="main-panel">
         <div class="panel-text"><u>Today's Special</u><br>Our Classic Cinnamon Rolls<br>Grab Yours Today!</div>

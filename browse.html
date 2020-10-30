@@ -3,20 +3,21 @@
   <head>
     <title>Bun Bun - Browse</title>
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="onLoad()">
     <div class="browse-grid">
       <div class="header">
         <img src="We're Open Sign.png" width="200" height=auto alt="We're Open Sign">
         <a href="index.html" style="text-decoration: none; color: #FFF6A9;">Bun Bun Bake Shop</a>
-        <img src="Search.png" width="150" height=auto alt="Search"></div></a>
+        <img src="Search.png" width="150" height=auto alt="Search"></div>
       <div class="plate">
         <p>Your Plate:</p>
         <img class="empty-plate" src="Empty Plate.png" width="70" height=auto alt="Empty Plate">
-        <p class="faint-text">You're plate is empty! Let's find you some rolls!</p>
-        <img src="Checkout Button.png" width="120" height="auto" alt="Checkout Button">
+        <p id="faint-text">You're plate is empty! Let's find you some rolls!</p>
+        <button class="orange-buttons" id="checkout-button" onclick="window.location.href='checkout.html'">Checkout</button>
         </div>
       <div class="main-body">
         <div class="title">Rolls Menu</div>
@@ -33,25 +34,25 @@
           <div class="roll-price">$4.00 Each</div>
         </div>
         <div class="rolls-detail">
-          <div class="roll-photo"><img src="Walnut.jpg" height="160" alt="Photo by Mikael Stenberg on Unsplash"></div>
+          <div class="roll-photo"><a href="walnut.html"><img src="Walnut.jpg" height="160" alt="Photo by Mikael Stenberg on Unsplash"></a></div>
           <div class="roll-name">Walnut</div>
           <div class="roll-description">Feeling a little nutty? These walnut rolls are bound to hit the spot!</div>
           <div class="roll-price">$3.75 Each</div>
         </div>
         <div class="rolls-detail">
-          <div class="roll-photo"><img src="Original-GlutenFree.jpg" height="160" alt="Photo by Joseph Gonzalez on Unsplash"></div>
+          <div class="roll-photo"><a href="glutenfree.html"><img src="Original-GlutenFree.jpg" height="160" alt="Photo by Joseph Gonzalez on Unsplash"></a></div>
           <div class="roll-name">Original (gluten-free)</div>
           <div class="roll-description">No gluten, no problem! These classics are right for you!</div>
           <div class="roll-price">$3.50 Each</div>
         </div>
         <div class="rolls-detail">
-          <div class="roll-photo"><img src="Pumpkin.jpg" height="160" alt="Photo by Scott Gummerson on Unsplash"></div>
+          <div class="roll-photo"><a href="pumpkinspice.html"><img src="Pumpkin.jpg" height="160" alt="Photo by Scott Gummerson on Unsplash"></a></div>
           <div class="roll-name">Pumpkin Spice</div>
           <div class="roll-description">Roll into autumn with the spice of pumpkin! Taste the season!</div>
           <div class="roll-price">$4.00 Each</div>
         </div>
         <div class="rolls-detail">
-          <div class="roll-photo"><img src="Caramel Pecan.jpg" height="160" alt="Photo by Dilyara Garifullina on Unsplash"></div>
+          <div class="roll-photo"><a href="caramelpecan.html"><img src="Caramel Pecan.jpg" height="160" alt="Photo by Dilyara Garifullina on Unsplash"></a></div>
           <div class="roll-name">Caramel Pecan</div>
           <div class="roll-description">A little sweet, a little crunchy, these buns are the perfect treat!</div>
           <div class="roll-price">$3.75 Each</div>

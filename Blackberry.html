@@ -4,10 +4,11 @@
     <title>Bun Bun - Blackberry</title>
 
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Life+Savers:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="onLoad()">
     <div class="product-grid">
       <div class="header">
         <img src="We're Open Sign.png" width="200" height=auto alt="We're Open Sign">
@@ -16,13 +17,14 @@
       <div class="plate">
         <p>Your Plate:</p>
         <img class="empty-plate" src="Empty Plate.png" width="70" height=auto alt="Empty Plate">
-        <p class="faint-text">You're plate is empty! Let's find you some rolls!</p>
-        <img src="Checkout Button.png" width="120" height="auto" alt="Checkout Button">
+        <p id="faint-text">You're plate is empty! Let's find you some rolls!</p>
+        <button class="orange-buttons" id="checkout-button" onclick="window.location.href='checkout.html'">Checkout</button>
         </div>
       <div class="prod-head">
-        <a href="browse.html"><img src="Go back.png" width="100" height=auto alt="Go Back Button"></a>
-        The Blackberry Bun
-        <img src="See Next Bun.png" width="100" height=auto alt="See Next Button"></div>
+        <button class="orange-buttons" id="go-back-all" onclick="window.location.href='browse.html'">< Back to All Buns</button>
+        <p id="product-header">The Blackberry Bun</p>
+        <button class="orange-buttons" id="next-bun" onclick="window.location.href='walnut.html'">See Next Bun <</button>
+      </div>
 
       <div class="prod-deets">
         <div class="prod-image"><img src="Blackberry.jpg" height="350" width=auto alt="Blackberry Flavor Photo"></div>
@@ -30,15 +32,29 @@
           <div class="prod-stars"><img src="Five stars.png" width="200" height="auto" alt="Five Stars"></div>
           <div class="prod-price">$4.00 Each</div></div>
         <div class="prod-descript">Missing summer? Bun Bun’s Artisan Blackberry Bun is packed with the season’s fresh berries. With just the right mix of tart and sweetness, these fruity rolls deliver the taste of summer with each mouth-watering bite.</div>
-        <div class="glaze">
+        <div class="glaze-dropdown">
           <div class="choose-glaze-head">Choose Your Glaze:</div>
-          <div class="choose-glaze"><img src="Choose Glaze.png" width="200" height=auto alt="Choose Glaze"></div></div>
-        <div class="quant">
+          <button onclick="chooseGlaze()" id="glaze-header" class="drop-button">Choose Glaze Here!</button>
+          <div id="glazeDropdown" class="dropdown-list">
+            <a onclick="chosenGlaze(this)" href="#">Sugar-milk</a>
+            <a onclick="chosenGlaze(this)" href="#">Vanilla-milk</a>
+            <a onclick="chosenGlaze(this)" href="#">Double-chocolate</a>
+            <a onclick="chosenGlaze(this)" href="#">None</a>
+          </div>
+        </div>
+        <div class="quant-dropdown">
           <div class="choose-quant-head">Choose Your Quantity:</div>
-          <div class="choose-quant"><img src="Choose Quantity.png" width="200" height=auto alt="Choose Quantity"></div></div>
+          <button onclick="chooseQuant()" id="quant-header" class="drop-button">Choose Quantity Here!</button>
+          <div id="quantDropdown" class="dropdown-list">
+            <a onclick="chosenQuant(this)" href="#">Single roll</a>
+            <a onclick="chosenQuant(this)" href="#">Three rolls</a>
+            <a onclick="chosenQuant(this)" href="#">Half a dozen rolls</a>
+            <a onclick="chosenQuant(this)" href="#">Dozen rolls</a>
+          </div>
+        </div>
         <div class="select-above">
-          <img class="select-inner" src="Select Above.png" width="150" height=auto alt="Select Above"></div>
-
+          <button onclick="addButton()" id="add-to-cart" disabled>Select Above!</button>
+        </div>
       </div>
       <div class="fat-banner">
         <div>
