@@ -127,6 +127,7 @@ function onLoadTotals() {
       let newBun = document.createElement('h3');
       let newQuant = document.createElement('p');
       let newDollars = document.createElement('p');
+      let cancelButton = document.createElement('img');
 
       if ((shoppingCart[item][0] === "Original Roll") || (shoppingCart[item][0] === "Original (Gluten-Free) Roll")) {
         totalPrice += shoppingCart[item][2] * 3.5;
@@ -141,15 +142,56 @@ function onLoadTotals() {
 
       newBun.innerHTML = shoppingCart[item][0] + " with " + shoppingCart[item][1] + " glaze";
       newQuant.innerHTML = shoppingCart[item][2];
+      cancelButton.src = "Remove.png";
+      cancelButton.alt = "Cancel Button";
+      cancelButton.id = "cancel-button";
+      cancelButton.setAttribute("onclick", "deleteItem(this)");
 
       yourItemsBody.appendChild(newBun);
       yourItemsBody.appendChild(newQuant);
       yourItemsBody.appendChild(newDollars);
+      yourItemsBody.appendChild(cancelButton);
     }
   }
   document.getElementById("totalCount").innerHTML = totalNum;
   document.getElementById("totalQuant").innerHTML = dollarAmt.format(totalPrice);
 
+}
+
+function deleteItem(element) {
+  let shoppingCart = JSON.parse(localStorage.getItem("storedCart"));
+  let totalNum = JSON.parse(localStorage.getItem("storedTotal"));
+  let origTotal = document.getElementById("totalQuant").innerHTML;
+  var dollarAmt = new Intl.NumberFormat('en-US', {style: 'currency', currency:'USD', minimumFractionDigits: 2});
+  let tempId = (Array.from(element.parentNode.children).indexOf(element) - 3)/4;
+
+  totalNum = totalNum - shoppingCart[tempId-1][2];
+
+  let price = 0;
+  if ((shoppingCart[tempId-1][0] === "Original Roll") || (shoppingCart[tempId-1][0] === "Original (Gluten-Free) Roll")) {
+    price = 3.5;
+  } else if ((shoppingCart[tempId-1][0] === "The Blackberry Bun")|| (shoppingCart[tempId-1][0] === "The Pumpkin Spice Bun")) {
+    price = 4.0;
+  } else if ((shoppingCart[tempId-1][0] === "The Walnut Roll") || (shoppingCart[tempId-1][0] === "The Caramel Pecan Roll")) {
+    price = 3.75;
+  }
+
+  document.getElementById("totalCount").innerHTML = totalNum;
+  document.getElementById("totalQuant").innerHTML = dollarAmt.format(origTotal - shoppingCart[tempId-1][2] * price);
+
+  shoppingCart.splice(tempId-1, 1);
+
+  localStorage.setItem("storedCart", JSON.stringify(shoppingCart));
+  localStorage.setItem("storedTotal", JSON.stringify(totalNum));
+  location.reload();
+  //element.parentNode.removeChild(element.previousSibling);
+  //element.parentNode.removeChild(element.previousSibling);
+  //element.parentNode.removeChild(element.previousSibling);
+  //element.parentNode.removeChild(element);
+
+
+  let countImgs = 0;
+  //for (let i = 0; i < element.parentNode.childNodes.length; )
 }
 //window.onclick = function(event) {
 //  if (!event.target.matches("glaze-dropdown")) {

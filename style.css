@@ -516,7 +516,7 @@ body, html {
   color: #E28920;
   padding: 5px 60px;
   display: grid;
-  grid-template-columns: auto 3fr 1fr 1fr auto;
+  grid-template-columns: auto 3fr 1fr 1fr 1fr auto;
   grid-template-rows: 10px auto 50px 50px 20px;
   align-items: center;
   justify-content: center;
@@ -524,10 +524,10 @@ body, html {
 
 #your-items {
   grid-row: 2;
-  grid-column: 2 / span 3;
+  grid-column: 2 / span 4;
   align-self: flex-start;
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
   margin: 0px;
 }
 
@@ -550,6 +550,17 @@ body, html {
   font-size: 25px;
   font-weight: bolder;
   margin-bottom: 20px;
+}
+
+#cancel-button {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+#cancel-button:hover {
+    cursor: pointer;
+    filter: brightness(1.5);
 }
 
 #totalTitle {
